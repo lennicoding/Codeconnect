@@ -1,0 +1,78 @@
+.dark_mode {
+    --primary-color: #f9f9f9;
+    --secondary-color: #404040;
+    --green-color: #4cd137;
+    --header-color: #e9e9e9;
+}
+
+
+
+#dark_mode_button {
+    width: 100px;
+    height: 30px;
+    background-color: var(--primary-color);
+    color: var(--green-color);
+    border-radius: 20px;
+    border-color: var(--green-color);
+    border-style: solid;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.wrapper {
+    visibility: hidden;
+    position: absolute;
+    top: 8.6%;
+    right: 1%;
+    max-width: 365px;
+    background: var(--header-color);
+    padding: 25px 25px 30px 25px;
+    border-radius: 15px;
+    box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.wrapper.show {
+    visibility: visible;
+}
+
+::selection {
+    color: var(--secondary-color);
+    background: var(--primary-color);
+}
+
+.content {
+    margin-top: 10px;
+}
+
+.content p {
+    color: var(--secondary-color);
+    margin: 5px 0 20px 0;
+}
+
+.content .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button button {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    background: var(--secondary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button button:hover {
+    transform: scale(0.97);
+}
+
+.button .item {
+    margin: 0 10px;
+}

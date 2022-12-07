@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post new Question</title>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="{% static 'Post_question/post_question.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'General/DarkMode/darkmode.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'General/Particles/particles.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'General/main.css' %}" />
+  </head>
+  <body>
+    <!--Header Section Main Forum Page-->
+    <header>
+      <a href="{% url 'start' %}">
+        <img src="{% static 'Assets/Logo.png' %}" class="Logo" alt="Logo" />
+      </a>
+      <button class="go-to-main">
+        <a href="{% url 'forum' %}">Forum</a>
+      </button>
+
+      <button id="dark_mode_button" onclick="showMessage()">Change</button>
+    </header>
+
+    <!--Main Section-->
+    <section class="main-section-title">
+      <div class="form">
+        <label for="title" class="label-question-title"
+          >Enter your questions title!</label
+        >
+        <input type="text" id="title" placeholder="Title" maxlength="100" />
+      </div>
+      <button class="next_button" onclick="next()">Next</button>
+      <script
+        type="text/javascript"
+        src="{% static 'Post_Question/post_question.js' %}"
+      ></script>
+      <script>
+        function link() {
+          window.location.href = "{% url 'post_question_description' %}";
+        }
+      </script>
+    </section>
+
+    <!--Background Stuff-->
+    <div class="wrapper">
+      <div class="content">
+        <p>Are you sure you want to switch on the lightmode?</p>
+        <div class="button">
+          <button class="item" onclick="switchMode()">Turn on Anyway</button>
+        </div>
+      </div>
+    </div>
+    <div id="particles-js"></div>
+    <script src="{% static 'General/Particles/particles.js' %}"></script>
+    <script src="{% static 'General/Particles/app.js' %}"></script>
+    <script src="{% static 'General/DarkMode/darkmode.js' %}" defer></script>
+  </body>
+</html>

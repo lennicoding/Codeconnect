@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Start/start.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'General/DarkMode/darkmode.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'General/Particles/particles.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'General/main.css' %}" />
+    <link
+      rel="shortcut icon"
+      href="{% static 'Assets/Logo.png' %}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <!--Header Section-->
+    <header>
+      <img
+        src="{% static 'Assets/Logo.png' %}"
+        class="Logo"
+        alt="Logo"
+        onclick="location.href='../Pages/Start/start.html'"
+      />
+      <button id="dark_mode_button" onclick="showMessage()">Change</button>
+    </header>
+
+    <!--Start Section-->
+    <section>
+      <div id="particles-js">
+        <h1 class="Heading">Codeconnect</h1>
+        <h4>Codeconnect is a multifunctional coding forum!</h4>
+        <button id="get_started_btn">
+          <a href="{% url 'signup' %}"> Get started! </a>
+        </button>
+        <div class="wrapper">
+          <div class="content">
+            <p>Are you sure you want to switch on the lightmode?</p>
+            <div class="button">
+              <button class="item" onclick="switchMode()">
+                Turn on Anyway
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="{% static 'General/DarkMode/darkmode.js' %}"></script>
+      <script src="{% static 'General/Particles/particles.js' %}"></script>
+
+      <script src="{% static 'General/Particles/app.js' %}"></script>
+    </section>
+
+    <!--Get Started Section-->
+    <section class="get_started">
+      <div class="get_started_container">
+        <div class="get_started_left">
+          <h2>Get Started</h2>
+          <img
+            src="{% static 'Assets/CodingImg.svg' %}"
+            class="CodingImg"
+            alt=""
+          />
+        </div>
+        <div class="get_started_right">
+          <h2 class="get_started_text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+            natus, ullam, repellendus blanditiis non aut alias suscipit minima
+            sunt distinctio mollitia nostrum ex dolor possimus nam at
+            perferendis obcaecati quo voluptatem, ipsa aperiam! Quia eveniet
+            unde, architecto possimus et necessitatibus. Laborum cum ad
+            deleniti, neque
+          </h2>
+          <button>SignUp</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

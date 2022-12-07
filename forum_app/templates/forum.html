@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Forum/forum.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'General/DarkMode/darkmode.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'General/Particles/particles.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'General/main.css' %}" />
+  </head>
+  <body>
+    <!--Header Section Main Forum Page-->
+    <header>
+      <a href="{% url 'start' %}">
+        <img src="{% static 'Assets/Logo.png' %}" class="Logo" alt="Logo" />
+      </a>
+      <button id="dark_mode_button" onclick="showMessage()">Change</button>
+    </header>
+
+    <!--Button Section-->
+    <section class="button_header">
+      <button class="post_question">
+        <a href="{% url 'post_question_title' %}">Post Question</a>
+      </button>
+      <button
+        class="your_question"
+        onclick="location.href='../Your_Questions/your_questions.html'"
+      >
+        <a href="{% url 'your_questions' %}">Your Questions</a>
+      </button>
+      <a href="{% url 'settings' %}">
+        <img
+          class="settings"
+          src="{% static 'Assets/settings.svg' %}"
+          alt="Settings"
+        />
+      </a>
+      <a href="{% url 'profile' %}">
+        <img class="user" src="{% static 'Assets/user.svg' %}" alt="User" />
+      </a>
+      <input class="searchInput" type="text" name="" placeholder="Search" />
+      <img
+        id="searchButton"
+        src="{% static 'Assets/search.svg' %}"
+        alt="Search"
+      />
+    </section>
+
+    <!--Main Section-->
+    <section class="main_section">
+      <div class="posts_container">
+        {% for post in all_posts %}
+        <div class="row">
+          <div class="voting">
+            <img
+              src="{% static 'Assets/arrow.png' %}"
+              alt=""
+              class="vote_button"
+            />
+            <div class="vote_count">{{ post.vote_count }}</div>
+          </div>
+          <p class="Question_Text">{{ post.title }}</p>
+          <p class="author">Lennart</p>
+          <!--Use split-->
+          <button class="tag">{{ post.tags }}</button>
+        </div>
+        <hr />
+        {% endfor %}
+      </div>
+
+      <script src="{% static 'Forum/forum.js' %}"></script>
+    </section>
+
+    <!--Background Stuff-->
+    <div class="wrapper">
+      <div class="content">
+        <p>Are you sure you want to switch on the light mode?</p>
+        <div class="button">
+          <button class="item" onclick="switchMode()">Turn on Anyway</button>
+        </div>
+      </div>
+    </div>
+    <div id="particles-js"></div>
+    <script src="{% static 'General/Particles/particles.js' %}"></script>
+    <script src="{% static 'General/Particles/app.js' %}"></script>
+    <script src="{% static 'General/DarkMode/darkmode.js' %}" defer></script>
+  </body>
+</html>

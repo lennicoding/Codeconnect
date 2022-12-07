@@ -1,0 +1,37 @@
+.main_section {
+    min-width: 60%;
+    width: auto;
+    min-height: 55%;
+    height: auto;
+    background-color: var(--header-color);
+    position: fixed;
+    left: 20%;
+    top: 25%;
+    border-radius: 30px;
+    padding: 20px 80px 20px 80px;
+}
+
+.settings-heading {
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.setting-item {
+    display: flex;
+    flex-direction: row;
+}
+
+.setting-content {
+    display: block;
+    flex: 1;
+    color: var(--secondary-color);
+}
+
+.setting-themes {
+    background-color: var(--green-color);
+    color: var(--secondary-color);
+    border-radius: 20px;
+    width: 100px;
+}

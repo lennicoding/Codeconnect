@@ -1,0 +1,211 @@
+.button_header {
+    margin-top: 60px;
+    background-color: var(--header-color);
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    border-top-color: var(--secondary-color);
+    border-width: 1.5px;
+    border-style: solid;
+}
+
+.post_question {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: var(--header-color);
+    border-style: solid;
+    border-color: var(--green-color);
+    color: var(--green-color);
+    border-radius: 25px;
+    opacity: 1;
+    transition: opacity 0.25s;
+    cursor: pointer;
+}
+
+.post_question:hover {
+    opacity: 0.6;
+}
+
+.your_question {
+    position: absolute;
+    left: 145px;
+    top: 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: var(--header-color);
+    border-style: solid;
+    border-color: var(--green-color);
+    color: var(--green-color);
+    border-radius: 25px;
+    opacity: 1;
+    transition: opacity 0.25s;
+    cursor: pointer;
+}
+
+.your_question:hover {
+    opacity: 0.6;
+}
+
+.settings {
+    position: absolute;
+    left: 285px;
+    top: 12px;
+    width: 35px;
+    height: 35px;
+    opacity: 1;
+    transition: opacity 0.25s;
+    cursor: pointer;
+}
+
+.settings:hover {
+    opacity: 0.6;
+}
+
+.user {
+    position: absolute;
+    left: 335px;
+    top: 12px;
+    width: 35px;
+    height: 35px;
+    opacity: 1;
+    transition: opacity 0.25s;
+    cursor: pointer;
+}
+
+.user:hover {
+    opacity: 0.6;
+}
+
+#searchButton {
+    background-color: var(--primary-color);
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    left: 580px;
+    top: 12px;
+    padding: 4px 4px 4px 4px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: 2px solid var(--green-color);
+    border-top: 2px solid var(--green-color);
+    border-right: 2px solid var(--green-color);
+    border-left: none;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.searchInput {
+    position: absolute;
+    left: 380px;
+    top: 12px;
+    background-color: var(--primary-color);
+    padding: 0;
+    color: var(--secondary-color);
+    font-size: 16px;
+    line-height: 23px;
+    width: 200px;
+    height: 35px;
+    border-bottom: 2px solid var(--green-color);
+    border-top: 2px solid var(--green-color);
+    border-left: 2px solid var(--green-color);
+    border-right: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.searchInput:focus {
+    outline: none;
+}
+
+/*Main Section Styling*/
+.main_section {
+    min-width: 60%;
+    width: auto;
+    min-height: 55%;
+    height: auto;
+    background-color: var(--header-color);
+    position: fixed;
+    left: 20%;
+    top: 25%;
+    border-radius: 30px;
+}
+
+.posts_container {
+    padding-left: 20px;
+    padding-top: 50px;
+    padding-right: 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    opacity: 1;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.row:hover{
+    opacity: 0.5;
+}
+
+.voting {
+    position: relative;
+}
+
+.vote_button {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.vote_count {
+    position: absolute;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 1px 4px 1px 4px;
+    font-size: 10px;
+    border-radius: 40px;
+    top: 15%;
+    left: 50%;
+}
+
+.Question_Text {
+    display: inline;
+    color: var(--secondary-color);
+    margin-right: 10px;
+    margin-top: 15px;
+    max-width: 600px;
+}
+
+.author {
+    display: inline;
+    color: var(--green-color);
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.time {
+    display: inline;
+    color: var(--primary-color);
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.tag {
+    background-color: var(--green-color);
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+    display: inline;
+    margin-top: 5px;
+    margin-right: 10px;
+    max-height: 40px;
+    border: none;
+}

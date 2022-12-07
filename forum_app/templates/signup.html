@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="{% static 'General/DarkMode/darkmode.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'General/Particles/particles.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'General/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'SignUp/signup.css' %}" />
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'start' %}"
+        ><img src="{% static 'Assets/Logo.png' %}" class="Logo" alt="Logo"
+      /></a>
+      <button id="dark_mode_button" onclick="showMessage()">Change</button>
+    </header>
+
+    <!--SignUp Section (Main Section)-->
+    <section class="main-signup">
+      <div class="signup-form">
+        <h1>Sign Up</h1>
+        <label for="username">Username</label>
+        <input type="text" id="username" />
+        <label for="email">Email</label>
+        <input type="email" id="email" />
+        <label for="password">Password</label>
+        <input type="password" id="password" />
+        <label for="retype-password">Retype Password</label>
+        <input type="password" id="retype-password" />
+        <button class="signup-button" onclick="signup()">Sign Up</button>
+        <h4>
+          Already have an Account?
+          <a href="{% url 'login' %}">Log In</a>
+        </h4>
+      </div>
+    </section>
+    <script src="{% static 'SignUp/signup.js' %}"></script>
+
+    <!--Background Stuff-->
+    <div class="wrapper">
+      <div class="content">
+        <p>Are you sure you want to switch on the lightmode?</p>
+        <div class="button">
+          <button class="item" onclick="switchMode()">Turn on Anyway</button>
+        </div>
+      </div>
+    </div>
+    <div id="particles-js"></div>
+    <script src="{% static 'General/Particles/particles.js' %}"></script>
+    <script src="{% static 'General/Particles/app.js' %}"></script>
+    <script src="{% static 'General/DarkMode/darkmode.js' %}" defer></script>
+  </body>
+</html>

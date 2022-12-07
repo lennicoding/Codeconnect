@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Settings/settings.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'General/DarkMode/darkmode.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'General/Particles/particles.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'General/main.css' %}" />
+  </head>
+  <body>
+    <!--Header Section Settings Page-->
+    <header>
+      <img
+        src="{% static 'Assets/Logo.png' %}"
+        class="Logo"
+        alt="Logo"
+        onclick="location.href='../Start/start.html'"
+      />
+      <button id="dark_mode_button" onclick="showMessage()">Change</button>
+    </header>
+
+    <section class="main_section">
+      <h1 class="settings-heading">Settings</h1>
+      <div class="setting-item">
+        <h2 class="setting-content">Default Theme</h2>
+        <select id="setting-themes">
+          <option value="Dark">Dark</option>
+          <option value="Light">Light</option>
+        </select>
+        <!--TODO: Change Button to Switch-->
+      </div>
+    </section>
+
+    <!--Background Stuff-->
+    <div class="wrapper">
+      <div class="content">
+        <p>Are you sure you want to switch on the lightmode?</p>
+        <div class="button">
+          <button class="item" onclick="switchMode()">Turn on Anyway</button>
+        </div>
+      </div>
+    </div>
+    <div id="particles-js"></div>
+    <script src="{% static 'General/Particles/particles.js' %}"></script>
+    <script src="{% static 'General/Particles/app.js' %}"></script>
+    <script src="{% static 'General/DarkMode/darkmode.js' %}" defer></script>
+  </body>
+</html>

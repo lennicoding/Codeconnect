@@ -1,0 +1,64 @@
+.main_section {
+    width: 400px;
+    height: 600px;
+    background-color: var(--header-color);
+    position: fixed;
+    top: 12%;
+    left: 35%;
+    border-radius: 30px;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile {
+    width: 115px;
+    height: 115px;
+    position: relative;
+}
+
+.no-profile {
+    height: 110px;
+    width: 110px;
+    border-radius: 240px;
+}
+
+.edit {
+    position: absolute;
+    background-color: var(--primary-color);
+    width: 35px;
+    border-radius: 70px;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+h1 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: var(--green-color);
+    display: inline;
+    align-self: flex-start;
+}
+
+p {
+    color: var(--secondary-color);
+    display: inline;
+    align-self: flex-start;
+}
+
+.save {
+    margin-top: 20px;
+    background-color: var(--green-color);
+    color: var(--secondary-color);
+    padding: 10px 10px 10px 10px;
+    font-size: 25px;
+    border-radius: 35px;
+    border: none;
+    cursor: pointer;
+}
