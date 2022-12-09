@@ -12,6 +12,10 @@
     padding-bottom: 20px;
 }
 
+.error-text {
+    color: var(--secondary-color);
+}
+
 .login-form {
     display: flex;
     flex-direction: column;

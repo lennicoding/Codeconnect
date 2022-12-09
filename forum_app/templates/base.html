@@ -1,0 +1,47 @@
+{% load static %}
+
+<head>
+    <link
+      rel="stylesheet"
+      href="{% static 'General/DarkMode/darkmode.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'General/Particles/particles.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'General/main.css' %}" />
+</head>
+
+<header>
+      <a href="{% url 'start' %}">
+        <img src="{% static 'Assets/Logo.png' %}" class="Logo" alt="Logo" />
+      </a>
+      <button id="dark_mode_button" onclick="showMessage()">Change</button>
+      <button class="go-to-main">
+        <a href="{% url 'forum' %}">Forum</a>
+      </button>
+      {% if user.is_authenticated %}
+        <p style="margin-left: 20px; color: var(--green-color);">Logged In as {{ current_user }}, </p>
+        <a href="{% url 'logout' %}"> Logout</a>
+      {% else %}
+        <a href="{% url 'login' %}" style="margin-left: 20px;">Login</a>
+      {% endif %}
+      
+</header>
+
+{% block content %}
+
+{% endblock %}
+
+<div class="wrapper">
+    <div class="content">
+        <p>Are you sure you want to switch on the light mode?</p>
+        <div class="button">
+          <button class="item" onclick="switchMode()">Turn on Anyway</button>
+        </div>
+    </div>
+</div>
+<div id="particles-js"></div>
+<script src="{% static 'General/Particles/particles.js' %}"></script>
+<script src="{% static 'General/Particles/app.js' %}"></script>
+<script src="{% static 'General/DarkMode/darkmode.js' %}" defer></script>

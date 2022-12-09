@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'forum_app'
+    'forum_app.apps.ForumAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +54,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'forum.urls'
+
+LOGIN_REDIRECT_URL = "forum"
 
 TEMPLATES = [
     {

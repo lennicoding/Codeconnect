@@ -5,36 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LogIn</title>
+    {% extends 'base.html' %}
     {% load static %}
+
+    {% block content %}
     <link rel="stylesheet" href="{% static 'LogIn/login.css' %}" />
-    <link
-      rel="stylesheet"
-      href="{% static 'General/DarkMode/darkmode.css' %}"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static 'General/Particles/particles.css' %}"
-    />
-    <link rel="stylesheet" href="{% static 'General/main.css' %}" />
   </head>
   <body>
-    <!--Header Section LogIn-->
-    <header>
-      <a href="{% url 'start' %}"
-        ><img src="{% static 'Assets/Logo.png' %}" class="Logo" alt="Logo"
-      /></a>
-      <button id="dark_mode_button" onclick="showMessage()">Change</button>
-    </header>
 
     <!--LogIn Section (Main Section)-->
     <section class="main-login">
       <div class="login-form">
+          {% if messages %}
+            {% for message in messages %}
+              <p class="error-text">{{ message }}</p>
+            {% endfor %}
+          {% endif %}
         <h1>Log In</h1>
-        <label for="username">Username</label>
-        <input type="text" id="username" />
-        <label for="password">Password</label>
-        <input type="password" id="password" />
-        <button class="login-button" onclick="login()">Log In</button>
+        <form action="" method=POST>
+           {% csrf_token %}
+           <label for="username">Username</label>
+          <input type="text" id="username" name="username"/>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" />
+          <input type="submit" value="Submit" class="login-button">
+        </form>
         <h4>
           Don't have an account?
           <a href="{% url 'signup' %}">Sign up</a>
@@ -44,18 +39,6 @@
     </section>
     <script src="{% static 'LogIn/login.js' %}"></script>
 
-    <!--Background Stuff-->
-    <div class="wrapper">
-      <div class="content">
-        <p>Are you sure you want to switch on the lightmode?</p>
-        <div class="button">
-          <button class="item" onclick="switchMode()">Turn on Anyway</button>
-        </div>
-      </div>
-    </div>
-    <div id="particles-js"></div>
-    <script src="{% static 'General/Particles/particles.js' %}"></script>
-    <script src="{% static 'General/Particles/app.js' %}"></script>
-    <script src="{% static 'General/DarkMode/darkmode.js' %}" defer></script>
+    {% endblock %}
   </body>
 </html>

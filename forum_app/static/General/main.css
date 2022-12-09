@@ -15,8 +15,9 @@
     overflow-y: hidden;
 }
 
-a{
+a {
     text-decoration: none;
+    color: #4cd137;
 }
 
 header {
@@ -46,4 +47,8 @@ header {
     border-color: var(--green-color);
     border-style: solid;
     cursor: pointer;
+}
+
+.link {
+    color: #4cd137;
 }

@@ -5,17 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    {% extends 'base.html' %}
     {% load static %}
+
+    {% block content %}
     <link rel="stylesheet" href="{% static 'Start/start.css' %}" />
-    <link
-      rel="stylesheet"
-      href="{% static 'General/DarkMode/darkmode.css' %}"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static 'General/Particles/particles.css' %}"
-    />
-    <link rel="stylesheet" href="{% static 'General/main.css' %}" />
     <link
       rel="shortcut icon"
       href="{% static 'Assets/Logo.png' %}"
@@ -23,16 +17,6 @@
     />
   </head>
   <body>
-    <!--Header Section-->
-    <header>
-      <img
-        src="{% static 'Assets/Logo.png' %}"
-        class="Logo"
-        alt="Logo"
-        onclick="location.href='../Pages/Start/start.html'"
-      />
-      <button id="dark_mode_button" onclick="showMessage()">Change</button>
-    </header>
 
     <!--Start Section-->
     <section>
@@ -40,7 +24,7 @@
         <h1 class="Heading">Codeconnect</h1>
         <h4>Codeconnect is a multifunctional coding forum!</h4>
         <button id="get_started_btn">
-          <a href="{% url 'signup' %}"> Get started! </a>
+          <a href=""> Get started! </a>
         </button>
         <div class="wrapper">
           <div class="content">
@@ -53,11 +37,6 @@
           </div>
         </div>
       </div>
-
-      <script src="{% static 'General/DarkMode/darkmode.js' %}"></script>
-      <script src="{% static 'General/Particles/particles.js' %}"></script>
-
-      <script src="{% static 'General/Particles/app.js' %}"></script>
     </section>
 
     <!--Get Started Section-->
@@ -84,5 +63,6 @@
         </div>
       </div>
     </section>
+    {% endblock %}
   </body>
 </html>
