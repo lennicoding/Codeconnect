@@ -12,7 +12,5 @@ urlpatterns = [
     path('forum/', views.forum, name='forum'),
     path('profile/', views.profile, name='profile'),
     path('your_questions/', views.your_questions, name='your_questions'),
-    path('post_question_title', views.post_question_title, name='post_question_title'),
-    path('post_question_description', views.post_question_description, name='post_question_description'),
-    path('post_question_tags', views.post_question_tags, name='post_question_tags'),
+    path('post_question', views.post_question, name='post_question'),
 ]
