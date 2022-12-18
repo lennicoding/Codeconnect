@@ -3,8 +3,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.http import HttpResponse
 from django.template import loader
-from django.contrib.auth.forms import UserCreationForm
-from .models import Post, Tag
+
+from .forms import PostForm
+from .models import Post
 
 def forum(request):
     current_user = request.user
@@ -57,20 +58,13 @@ def your_questions(request):
     template = loader.get_template('your_questions.html')
     return HttpResponse(template.render())
 
-def post_question_title(request):
-    template = loader.get_template('post_question_title.html')
-    return HttpResponse(template.render())
-
-def post_question_description(request):
-    template = loader.get_template('post_questions_description.html')
-    return HttpResponse(template.render())
-
-def post_question_tags(request):
+def post_question(request):
     if request.method == "POST":
-        print("Received Title: ", request.POST["title"])
-        print("Received Description: ", request.POST["description"])
-        print("Received Tags: ", request.POST["tags"])
-        Post.objects.create(title = request.POST["title"], description = request.POST["description"], tags = request.POST["tags"])
-
-    all_tags = Tag.objects.all()
-    return render(request, "post_question_tags.html", {'all_tags' : all_tags})
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('forum')
+    form = PostForm()
+    return render(request, "post_question.html", {
+        'form': form
+    })
