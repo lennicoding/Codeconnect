@@ -21,11 +21,13 @@
     <!--Start Section-->
     <section>
       <div id="particles-js">
-        <h1 class="Heading">Codeconnect</h1>
+        <div class="start-cont">
+          <h1 class="heading">Codeconnect</h1>
         <h4>Codeconnect is a multifunctional coding forum!</h4>
         <button id="get_started_btn">
-          <a href=""> Get started! </a>
+          <a href="{% url 'signup' %}">Get started!</a>
         </button>
+        </div>
         <div class="wrapper">
           <div class="content">
             <p>Are you sure you want to switch on the lightmode?</p>
@@ -35,31 +37,6 @@
               </button>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!--Get Started Section-->
-    <section class="get_started">
-      <div class="get_started_container">
-        <div class="get_started_left">
-          <h2>Get Started</h2>
-          <img
-            src="{% static 'Assets/CodingImg.svg' %}"
-            class="CodingImg"
-            alt=""
-          />
-        </div>
-        <div class="get_started_right">
-          <h2 class="get_started_text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-            natus, ullam, repellendus blanditiis non aut alias suscipit minima
-            sunt distinctio mollitia nostrum ex dolor possimus nam at
-            perferendis obcaecati quo voluptatem, ipsa aperiam! Quia eveniet
-            unde, architecto possimus et necessitatibus. Laborum cum ad
-            deleniti, neque
-          </h2>
-          <button>SignUp</button>
         </div>
       </div>
     </section>

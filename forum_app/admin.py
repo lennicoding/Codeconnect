@@ -3,7 +3,7 @@ from .models import Post
 from .models import Tag
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'description', 'vote_count', 'tags')
+    list_display = ('id', 'title', 'description', 'vote_count')
 
 admin.site.register(Post, PostAdmin)
 

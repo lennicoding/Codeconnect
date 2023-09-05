@@ -22,7 +22,9 @@
           class="no-profile"
           alt=""
         />
-        <img src="{% static 'Assets/pencil.svg' %}" alt="" class="edit" />
+        <a href="{% url 'photo' %}">
+          <img src="{% static 'Assets/pencil.svg' %}" alt="" class="edit"/>
+        </a>
       </div>
       <h2>Name</h2>
       <p>Lennart</p>

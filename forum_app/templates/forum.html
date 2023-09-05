@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    {% extends 'base.html' %}
-    {% load static %}
 
-    {% block content %}
-    <link rel="stylesheet" href="{% static 'Forum/forum.css' %}" />
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  {% extends 'base.html' %}
+  {% load static %}
 
-    <!--Button Section-->
-    <section class="button_header">
-      <button class="post_question">
-        <a href="{% url 'post_question' %}" class="link">Post Question</a>
-      </button>
-      <button
-        class="your_question"
-        onclick="location.href='../Your_Questions/your_questions.html'"
-      >
-        <a href="{% url 'your_questions' %}" class="link">Your Questions</a>
-      </button>
-      <a href="{% url 'settings' %}">
+  {% block content %}
+  <link rel="stylesheet" href="{% static 'Forum/forum.css' %}" />
+</head>
+
+<body>
+
+  <!--Button Section-->
+  <section class="button_header">
+    <button class="post_question">
+      <a href="{% url 'post_question' %}" class="link">Post Question</a>
+    </button>
+    <button class="your_question">
+      <a href="{% url 'your_questions' %}" class="link">Your Questions</a>
+    </button>
+    <!--<a href="{% url 'settings' %}">
         <img
           class="settings"
           src="{% static 'Assets/settings.svg' %}"
@@ -33,40 +32,97 @@
       </a>
       <a href="{% url 'profile' %}">
         <img class="user" src="{% static 'Assets/user.svg' %}" alt="User" />
-      </a>
-      <input class="searchInput" type="text" name="" placeholder="Search" />
-      <img
-        id="searchButton"
-        src="{% static 'Assets/search.svg' %}"
-        alt="Search"
-      />
-    </section>
+      </a>-->
+    <input class="searchInput" type="text" id="searchInput" placeholder="Search" />
+    <img id="searchButton" src="{% static 'Assets/search.svg' %}" alt="Search" />
+  </section>
 
-    <!--Main Section-->
-    <section class="main_section">
-      <div class="posts_container">
-        {% for post in all_posts %}
-        <div class="row">
-          <div class="voting">
-            <img
-              src="{% static 'Assets/arrow.png' %}"
-              alt=""
-              class="vote_button"
-            />
-            <div class="vote_count">{{ post.vote_count }}</div>
-          </div>
-          <p class="Question_Text">{{ post.title }}</p>
-          <p class="author">Lennart</p>
-          <!--Use split-->
-          <button class="tag">{{ post.tags }}</button>
+  <!--Main Section-->
+  <section class="main_section">
+    <div class="posts_container">
+      {% for post in all_posts %}
+      <div class="small-container">
+        <div class="voting" onclick="vote('{{ post.id }}')">
+          <img src="{% static 'Assets/arrow.png' %}" alt="" class="vote_button" />
+          <div class="vote_count">{{ post.vote_count }}</div>
         </div>
-        <hr />
-        {% endfor %}
-      </div>
+        <div class="row" onclick="view_link('{{ post.id }}')">
+          <div class="vertical-cont">
+            <p class="Question_Text">{{ post.title }}</p>
+            <p class="question-description">
+              {{ post.description }}
+            </p>
+          </div>
 
-      <script src="{% static 'Forum/forum.js' %}"></script>
-    </section>
-    
-    {% endblock %}
-  </body>
+          <p class="author">{{ post.author.username }}</p>
+          <!--Use split-->
+          {% for tag in post.tags.all %}
+          <div class="tag">{{ tag.name }}</div>
+          {% endfor %}
+        </div>
+        {% if request.user == post.author or request.user.is_staff %}
+        <button id="delete-btn" onclick="delete_item('{{ post.id }}')">Delete</button>
+        <button id="delete-btn" onclick="edit_link('{{ post.id }}')">Edit</button>
+        {% endif %}
+      </div>
+      <hr />
+      {% empty %}
+      <div class="no-post-container">
+        <p>There aren't any posts.</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <script src="{% static 'Forum/forum.js' %}"></script>
+    <script>
+      function delete_item(id) {
+        let token = "{{ csrf_token }}";
+        let formData = new FormData();
+        formData.append("itemId", id);
+        formData.append("type", "none");
+        formData.append("csrfmiddlewaretoken", token)
+        fetch('/forum/', {
+          method: "POST",
+          body: formData
+        });
+
+        location.reload()
+        location.reload()
+      }
+
+      function view_link(id) {
+        window.location.href = "{% url 'view' id=12345 %}".replace(/12345/, id.toString());
+      }
+
+      function vote(id) {
+        let token = "{{ csrf_token }}";
+        let formData = new FormData();
+        formData.append("type", "vote");
+        formData.append("id", id);
+        formData.append("csrfmiddlewaretoken", token)
+        fetch('/forum/', {
+          method: "POST",
+          body: formData
+        });
+
+        location.reload()
+        location.reload()
+      }
+
+      const searchInput = document.getElementById('searchInput');
+      const searchButton = document.getElementById('searchButton');
+
+      searchButton.addEventListener('click', () => {
+        const query = searchInput.value;
+        if (query.trim() !== '') {
+          window.location.href = `/search/?q=${encodeURIComponent(query)}`;
+        }
+      });
+
+    </script>
+  </section>
+
+  {% endblock %}
+</body>
+
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% extends 'base.html' %}
+    {% load static %}
+
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'Forum/forum.css' %}" />
+</head>
+
+<body>
+
+    <!--Button Section-->
+    <section class="button_header">
+        <button class="post_question">
+            <a href="{% url 'post_question' %}" class="link">Post Question</a>
+        </button>
+        <button class="your_question">
+            <a href="{% url 'your_questions' %}" class="link">Your Questions</a>
+        </button>
+        <!--<a href="{% url 'settings' %}">
+                <img
+                  class="settings"
+                  src="{% static 'Assets/settings.svg' %}"
+                  alt="Settings"
+                />
+              </a>
+              <a href="{% url 'profile' %}">
+                <img class="user" src="{% static 'Assets/user.svg' %}" alt="User" />
+              </a>-->
+        <input class="searchInput" type="text" id="searchInput" placeholder="Search" />
+        <img id="searchButton" src="{% static 'Assets/search.svg' %}" alt="Search" />
+    </section>
+
+    <!--Main Section-->
+    <section class="main_section">
+        <h1 class="results_header">Results</h1>
+        <div class="posts_container">
+            {% for result in results %}
+            <div class="small-container">
+                <div class="voting" onclick="vote('{{ post.id }}')">
+                    <img src="{% static 'Assets/arrow.png' %}" alt="" class="vote_button" />
+                    <div class="vote_count">{{ result.vote_count }}</div>
+                </div>
+                <div class="row" onclick="view_link('{{ post.id }}')">
+                    <div class="vertical-cont">
+                        <p class="Question_Text">{{ result.title }}</p>
+                        <p class="question-description">
+                            {{ result.description }}
+                        </p>
+                    </div>
+
+                    <p class="author">{{ result.author.username }}</p>
+                    <!--Use split-->
+                    {% for tag in result.tags.all %}
+                    <div class="tag">{{ tag.name }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <hr />
+            {% empty %}
+            <div class="no-post-container">
+                <p>There aren't any results.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <script src="{% static 'Forum/forum.js' %}"></script>
+    </section>
+
+    {% endblock %}
+</body>
+
+</html>

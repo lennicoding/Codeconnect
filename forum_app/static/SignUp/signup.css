@@ -2,7 +2,7 @@
     background-color: var(--header-color);
     min-height: 62vh;
     height: auto;
-    width: 60vh;
+    width: 70vh;
     position: fixed;
     top: 22%;
     left: 32%;
@@ -26,43 +26,16 @@
     margin-bottom: 7%;
 }
 
-label[for*="username"] {
-    color: var(--secondary-color);
-    display: block;
-    margin-bottom: 6px;
-    font-size: 20px;
-}
-
-#username {
-    display: block;
-    background-color: var(--primary-color);
-    border-style: solid;
-    border-radius: 20px;
-    border-color: var(--green-color);
-    color: var(--secondary-color);
-    border-width: 2px;
-    width: 30vh;
-    height: 30px;
-    margin-bottom: 10px;
-    padding-left: 10px;
-}
-
-#username:focus {
-    border: none;
-    color: var(--secondary-color);
-    padding-left: 10px;
-}
-
 label[for*="retype-password"],
-label[for*="password"] {
-    color: var(--secondary-color);
+label[for*="password"],
+label[for*="username"] {
+    color: var(--green-color);
     display: block;
     margin-bottom: 6px;
     font-size: 20px;
 }
 
-#retype-password,
-#password {
+input{
     padding-left: 10px;
     color: var(--secondary-color);
     display: block;
@@ -76,35 +49,7 @@ label[for*="password"] {
     margin-bottom: 10px;
 }
 
-#retype-password:focus,
-#password:focus {
-    border: none;
-    color: var(--secondary-color);
-    padding-left: 10px;
-}
-
-label[for*="email"] {
-    color: var(--secondary-color);
-    display: block;
-    margin-bottom: 6px;
-    font-size: 20px;
-}
-
-#email {
-    padding-left: 10px;
-    color: var(--secondary-color);
-    display: block;
-    background-color: var(--primary-color);
-    border-style: solid;
-    border-radius: 20px;
-    border-color: var(--green-color);
-    border-width: 2px;
-    width: 30vh;
-    height: 30px;
-    margin-bottom: 10px;
-}
-
-#email:focus {
+input:focus{
     border: none;
     color: var(--secondary-color);
     padding-left: 10px;
@@ -114,6 +59,11 @@ label[for*="email"] {
     color: var(--secondary-color);
     text-align: center;
     margin-bottom: 20px;
+}
+
+li, .helptext {
+    color: var(--secondary-color);
+    margin-bottom: 16px;
 }
 
 .main-signup h4 a {
@@ -134,6 +84,9 @@ label[for*="email"] {
     font-size: 20px;
     cursor: pointer;
     margin-bottom: 10px;
+    margin-top: 10px;
+    height: 50px;
+    width: 120px;
 }
 
 .signup-button:hover {

@@ -1,10 +1,16 @@
-.Heading {
+.heading {
     color: var(--secondary-color);
     font-size: 80px;
+}
+
+.start-cont{
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 31%;
+    top: 40%;
+    left: 34%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .Logo {
@@ -16,19 +22,12 @@
 h4 {
     color: var(--secondary-color);
     font-size: 20px;
-    position: absolute;
-    top: 55%;
-    transform: translateY(-50%);
-    left: 32.3%;
+    margin-bottom: 10px;
 }
 
 #get_started_btn {
     width: 150px;
     height: 60px;
-    position: absolute;
-    top: 61%;
-    transform: translateY(-50%);
-    left: 44%;
     background-color: var(--green-color);
     color: var(--primary-color);
     border: none;
@@ -41,6 +40,9 @@ h4 {
 
 #get_started_btn:hover {
     opacity: 0.6;
+}
+#get_started_btn>a{
+    color: var(--secondary-color);
 }
 
 /*Get Started Section*/

@@ -1,5 +1,4 @@
 from django import forms
-
 from forum_app.models import Post, Tag
 
 

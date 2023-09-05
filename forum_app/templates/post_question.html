@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post new Question</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
     {% extends 'base.html' %}
     {% load static %}
 
     {% block content %}
-        <link
-                rel="stylesheet"
-                href="{% static 'Post_question/post_question.css' %}"
-        />
-        </head>
-        <body>
+    <link rel="stylesheet" href="{% static 'Post_question/post_question.css' %}" />
+</head>
 
-        <!--Main Section-->
-        <section class="main-section">
-            <div class="form">
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button type="submit">Post</button>
-                </form>
-            </div>
-        </section>
+<body>
 
-        <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
-        <script>
-            const choices = new Choices('.choices');
-        </script>
-        </body>
-    {% endblock %}
+    <!--Main Section-->
+    <section class="main-section">
+        <div class="form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit">Post</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script>
+        const choices = new Choices('.choices');
+    </script>
+</body>
+{% endblock %}
+
 </html>

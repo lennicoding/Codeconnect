@@ -35,22 +35,27 @@
 
     <!--Main Section-->
     <section class="main_section">
-      <ol>
-        <li class="row">
-          <p class="Question_Text">How to center a div?</p>
-          <button class="tag">HTML</button>
-          <button class="tag">CSS</button>
-          <button class="edit-button">Edit</button>
-        </li>
+      <div class="posts_container">
+        {% for post in all_posts %}
+        <div class="row">
+          <div class="voting">
+            <img
+              src="{% static 'Assets/arrow.png' %}"
+              alt=""
+              class="vote_button"
+            />
+            <div class="vote_count">{{ post.vote_count }}</div>
+          </div>
+          <p class="Question_Text">{{ post.title }}</p>
+          <p class="author">{{ post.author }}</p>
+          <!--Use split-->
+          {% for tag in post.tags.all %}
+          <button class="tag">{{ tag.name }}</button>
+          {% endfor %}
+        </div>
         <hr />
-        <li class="row">
-          <p class="Question_Text">Django Tutorial</p>
-          <button class="tag">Python</button>
-          <button class="tag">Django</button>
-          <button class="edit-button">Edit</button>
-        </li>
-        <hr />
-      </ol>
+        {% endfor %}
+      </div>
     </section>
 
     <!--Background Stuff-->
